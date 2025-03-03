@@ -1,23 +1,4 @@
-// src/models/dailyForecast.ts
-
 import { WeatherDetail, WeatherMetadata } from './weather';
-
-// // src/models/forecastEntry.ts
-// export interface ForecastEntry {
-//   timestamp: number;
-//   formattedTime: string;
-//   temperature: {
-//     celsius: number;
-//     fahrenheit: number;
-//   };
-//   weather: {
-//     main: string;
-//     description: string;
-//     icon: string;
-//   };
-//   windSpeedKmh: number;
-//   precipitation?: number;
-// }
 
 export interface ForecastDataEntry {
   dt: number;
@@ -74,7 +55,6 @@ export interface DailyForecast {
   lowestTemperature: number;
   timeOfHighestTemperature: number;
   highestTemperature: number;
-  // A dictionary mapping Unix timestamps (dt) to the processed DisplayedWeatherData for that time.
   weatherDetail: {
     [dt: number]: WeatherDetail;
   };

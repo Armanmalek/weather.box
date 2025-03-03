@@ -1,11 +1,13 @@
 import { TempUnit, WeatherDetail } from '../models/weather';
 
 export function convertKelvinToCelsius(kelvin: number): number {
-  return Math.round(kelvin - 273.15);
+  return Math.round(kelvin - 273.15) === -0 ? 0 : Math.round(kelvin - 273.15);
 }
 
 export function convertKelvinToFahrenheit(kelvin: number): number {
-  return Math.round((kelvin - 273.15) * (9 / 5) + 32);
+  return Math.round((kelvin - 273.15) * (9 / 5) + 32) === -0
+    ? 0
+    : Math.round((kelvin - 273.15) * (9 / 5) + 32);
 }
 
 export function convertMsToKmh(ms: number): number {

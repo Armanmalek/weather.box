@@ -3,7 +3,7 @@ import type { TodaysForecastData } from '../models/weather';
 
 const CACHE_DURATION = 300000; // Cache duration: 5 minutes
 
-const weatherCache: {
+export const weatherCache: {
   [cityId: string]: {
     todaysForecast?: { data: TodaysForecastData; timestamp: number };
     extendedForecast?: { data: ForecastData; timestamp: number };

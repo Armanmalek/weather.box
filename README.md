@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Welcome to the WeatherDotBox Project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Welcome to the WeatherDotBox project! This project aims to provide accurate and up-to-date weather information in a user-friendly interface.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To get started with the WeatherDotBox project, follow these steps:
 
-## Learn More
+1. **Install Node Version Manager (NVM)**: Ensure you have NVM installed on your machine. If not, you can install it from [here](https://github.com/nvm-sh/nvm).
 
-To learn more about Next.js, take a look at the following resources:
+2. **Use the Correct Node Version**: Run the following command to use the correct Node.js version for this project:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   nvm use
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Install Dependencies**: Install the necessary dependencies by running:
 
-## Deploy on Vercel
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Run the Project**: Start the project with the following command:
+   ```bash
+   npm start
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Description
+
+The WeatherDotBox project is designed to provide users with real-time weather updates. It fetches data from various weather APIs and displays it in an intuitive and easy-to-understand format. The project is built using modern web technologies and follows best practices for maintainability and scalability.
+
+## Folder Structure
+
+The project is organized into the following folders:
+
+- **/src**: Contains the source code for the project.
+  - **/components**: Reusable UI components.
+  - **/services**: Services for API calls and data handling.
+  - **/utils**: Utility functions and helpers.
+  - **/styles**: CSS and styling files.
+- **/public**: Static files and assets.
+- **/tests**: Unit and integration tests.
+
+## Architecture Decisions
+
+The architecture of the WeatherDotBox project is based on the following principles:
+
+- **Modularity**: The project is divided into small, reusable components to enhance maintainability and scalability.
+- **Separation of Concerns**: Different aspects of the application (UI, data handling, business logic) are separated into distinct modules.
+- **API Integration**: The project integrates with multiple weather APIs to provide accurate and comprehensive weather data.
+- **Responsive Design**: The UI is designed to be responsive and accessible on various devices and screen sizes.
+- **Testing**: Comprehensive testing is implemented to ensure the reliability and stability of the application.
+
+We hope you enjoy using the WeatherDotBox project and find it useful for your weather information needs!

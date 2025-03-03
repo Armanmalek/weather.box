@@ -26,7 +26,6 @@ export const WeatherProvider: React.FC<{ children: ReactNode }> = ({
 
   const [temperatureUnit, setTemperatureUnit] = useState<TempUnit>('C');
 
-  console.log('when i initialize its', selectedDay);
   return (
     <WeatherContext.Provider
       value={{

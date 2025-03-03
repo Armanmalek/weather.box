@@ -119,34 +119,32 @@ export function getWeatherDetail(
   forecastDataEntries: ForecastDataEntry[],
   timezoneOffset: number,
 ): { [dt: number]: WeatherDetail } {
-  const weatherDetail: { [dt: number]: WeatherDetail } = {};
-
-  console.log('fef', forecastDataEntries);
-
-  forecastDataEntries.forEach((entry) => {
+  return forecastDataEntries.reduce((weatherDetail, entry) => {
     const { dt } = entry;
-    const result = parseWeatherDetail(entry);
+    const result = parseWeatherDetail(entry, timezoneOffset);
     if (result !== null) {
       weatherDetail[dt + timezoneOffset] = result;
     }
-  });
-
-  return weatherDetail;
+    return weatherDetail;
+  }, {} as { [dt: number]: WeatherDetail });
 }
 
 export function parseWeatherDetail(
   rawData: TodaysForecastData | ForecastDataEntry | null,
+  timezoneOffset: number = 0,
 ): WeatherDetail | null {
   if (rawData === null) {
     return null;
   }
 
-  const formattedTime = new Date(rawData.dt * 1000).toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
+  const formattedTime = new Date(
+    (rawData.dt + timezoneOffset) * 1000,
+  ).toLocaleTimeString('en-US', {
+    timeZone: 'UTC',
+    hour12: true,
+    hour: 'numeric',
+    minute: 'numeric',
   });
-
-  //   console.log('about to shit', rawData.weatherMetadata, rawData);
 
   return {
     temperature: {
@@ -170,43 +168,3 @@ export function parseWeatherDetail(
     snow: rawData?.snow?.['1h'] ?? rawData?.snow?.['3h'],
   };
 }
-
-// export function aggregateDailyForecast(
-//   entries: ForecastEntry[],
-//   timezoneOffset: number,
-// ): ExtendedForecast {
-//   // Initialize min and max using the first entry's temperature
-//   let minTemp = entries[0].main.temp;
-//   let maxTemp = entries[0].main.temp;
-
-//   // Build a dictionary of DisplayableWeatherData objects keyed by dt
-//   const displayedWeather: { [dt: number]: DisplayableWeatherData } = {};
-
-//   entries.forEach((entry) => {
-//     // Update min/max temperatures (we work in Kelvin; conversion can be done later in the UI if needed)
-//     if (entry.main.temp < minTemp) minTemp = entry.main.temp;
-//     if (entry.main.temp > maxTemp) maxTemp = entry.main.temp;
-
-//     const displayable = processForecastEntryToDisplayable(entry);
-//     displayedWeather[entry.dt] = displayable;
-//   });
-
-//   // Use the date from the first entry (adjusted by timezone) as the key
-//   const localDateStr = new Date((entries[0].dt + timezoneOffset) * 1000)
-//     .toISOString()
-//     .split('T')[0];
-//   const noonTimestamp = getNoonTimestampForDate(localDateStr);
-//   const closestTs = findClosestTimestamp(displayedWeather, noonTimestamp);
-//   const repDisplayable = displayedWeather[closestTs];
-
-//   return {
-//     date: localDateStr,
-//     dayOfWeek: new Date(localDateStr).toLocaleDateString('en-US', {
-//       weekday: 'long',
-//     }),
-//     representativeWeather: repDisplayable.weather,
-//     minTemp,
-//     maxTemp,
-//     displayedWeather,
-//   };
-// }

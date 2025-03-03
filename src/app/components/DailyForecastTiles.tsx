@@ -80,16 +80,6 @@ const findWeatherDetailFromDate = (
   forecast: ExtendedForecast,
   tile: TileData,
 ) => {
-  console.log('clicked tile', tile);
-  console.log(
-    forecast,
-    'ftf',
-    forecast[tile.date],
-    'ftffffe3',
-    forecast[tile.date]['weatherDetail'],
-    'ftffff',
-    forecast[tile.date]['weatherDetail'][tile.dt],
-  );
   return forecast[tile.date]['weatherDetail'][tile.dt];
 };
 
@@ -109,9 +99,7 @@ const DailyForecastTiles: React.FC<DailyForecastTilesProps> = ({
   }, [forecast, temperatureUnit, selectedDay]);
 
   const handleTileClick = (tile: TileData) => {
-    console.log('Tile clicked:', tile);
     const weatherDetail = findWeatherDetailFromDate(forecast, tile);
-    console.log('wd, ', weatherDetail);
     setCurrentDisplay(weatherDetail);
     setSelectedDay(tile.date);
   };

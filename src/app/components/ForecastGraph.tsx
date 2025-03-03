@@ -47,7 +47,7 @@ export const createDataPoint = (
       ],
     timestamp: weatherDetail.formattedTime,
     forecastDate,
-    weatherDetail, // keeping this to set the selcted temperature when you click a data point
+    weatherDetail,
   };
 };
 
@@ -84,7 +84,7 @@ export const getForecastData = (
   return dataPoints;
 };
 
-export const ForecastGraph: React.FC<ForecastGraphProps> = ({ forecast }) => {
+const ForecastGraph: React.FC<ForecastGraphProps> = ({ forecast }) => {
   const { temperatureUnit, selectedDay, setSelectedDay, setCurrentDisplay } =
     useWeather();
 
@@ -153,3 +153,5 @@ export const ForecastGraph: React.FC<ForecastGraphProps> = ({ forecast }) => {
     </div>
   );
 };
+
+export default ForecastGraph;

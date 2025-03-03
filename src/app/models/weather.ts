@@ -1,82 +1,3 @@
-// export interface Weather {
-//   main: string;
-//   description: string;
-//   icon: string;
-// }
-
-// export interface ProcessedWeatherData {
-//   id: number;
-//   name: string;
-//   temperature: {
-//     celsius: number;
-//     fahrenheit: number;
-//   };
-//   feelsLikeTemperature: {
-//     celsius: number;
-//     fahrenheit: number;
-//   };
-//   weather: {
-//     main: string;
-//     description: string;
-//     icon: string;
-//   };
-//   pressure: number;
-//   humidity: number;
-//   windSpeedKmh: number;
-//   formattedTime: string;
-//   rain?: { '1h'?: number };
-//   snow?: { '1h'?: number };
-// }
-
-// export interface WeatherData {
-//   id: number;
-//   name: string;
-//   weather: Weather[];
-//   main: {
-//     temp: number;
-//     feels_like: number;
-// temp_min: number;
-// temp_max: number;
-//     pressure: number;
-//     humidity: number;
-//   };
-//   wind: {
-//     speed: number;
-//     deg: number;
-//   };
-//   rain?: {
-//     '1h'?: number;
-//   };
-//   dt: number;
-// }
-
-// export interface ProcessedWeatherData {
-//   id: number;
-//   name: string;
-//   temperature: {
-//     celsius: number;
-//     fahrenheit: number;
-//   };
-// feelsLikeTemperature: {
-//   celsius: number;
-//   fahrenheit: number;
-// }
-//   weather: {
-//     main: string;
-//     description: string;
-//     icon: string;
-//   };
-//   rain?: {
-//     '1h'?: number;
-//   };
-//   pressure: number;
-//   humidity: number;
-//   windSpeedKmh: number;
-//   formattedTime: string;
-// }
-
-// src/models/weather.ts
-
 export interface WeatherMetadata {
   id: number;
   main: string;
@@ -135,9 +56,6 @@ export interface TodaysForecastData {
 }
 
 export interface WeatherDetail {
-  //   id: number;
-  //   name: string;
-  //   timestamp: string;
   formattedTime: string; // Pre-formatted for display (computed in the controller)
   temperature: {
     celsius: number;
